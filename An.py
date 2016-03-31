@@ -78,4 +78,4 @@ class Tales(object):
   def savestatus(self):
     path='Data/status.json'
     with open(status_file,'w') as f:
-			json.dump(self.status, f)
+	json.dump(self.status, f)
