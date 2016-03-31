@@ -24,6 +24,7 @@ class Tales(object):
     else:
       self.status={'Properties':{'scene':'Start'}}
   def atscene(self,scene):
+    self.status['Properties']['scene']=scene
     for line in self.script[scene]:
       if line[:12]=="<<Boardcast:":
         print("[",line[12:(len(line)-2)],"]")
@@ -36,10 +37,16 @@ class Tales(object):
         self.status['Properties']['scene']=next
         atscene(next)
       if line=="[End]":
-        self.status['Properties']['scene']="Start"
-        print("[Connection Lost...]")
+        print("[Connection Exiting...]\n")
+        print("Thee End~Thanks for playing!!!")
         sleep(5)
-        atscene("Start")
+        os._exit(0)
+      if line=="[Over]":
+      	print("[Connection Lost]\n")
+      	sleep(2)
+      	print("You Failed...")
+      	sleep(3)
+      	atscene("Start")
       if line[:8]=="<<Sleep:":
         unit=line[-3]
         raw=line[8:(len(line)-3)]
@@ -52,7 +59,22 @@ class Tales(object):
         else:
           sleep(raw)
       if line[:9]=="<<Choice:":
-        pass
+        rc=line[9:(len(line)-2)]
+        a=rc.split(',')
+        l=len(a)/2
+        text="To choose:\n"
+        for i in range(0,l):
+          tp=str(i+1)+"-->"+a[i]+'\n'
+          text+=tp
+        inword=input(text)
+        if int(inwords)>0 and int(inword)<=l:
+          choice=l+lint(inwords)-1
+          sleep(1)
+          atscene(choice)
+        else:
+          print("233,error accrued!!!")
+          sleep(3)
+          os._exit(0)
   def savestatus(self):
     path='Data/status.json'
     with open(status_file,'w') as f:
