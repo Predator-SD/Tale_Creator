@@ -23,8 +23,13 @@ class Tales(object):
         self.status=json.load(f)
     else:
       self.status={'Properties':{'scene':'Start'}}
+  def savestatus(self):
+    path='Data/status.json'
+    with open(status_file,'w') as f:
+      json.dump(self.status, f)
   def atscene(self,scene):
     self.status['Properties']['scene']=scene
+    self.savestatus()
     for line in self.script[scene]:
       if line[:12]=="<<Boardcast:":
         print("[",line[12:(len(line)-2)],"]")
@@ -75,7 +80,8 @@ class Tales(object):
           print("233,error accrued!!!")
           sleep(3)
           os._exit(0)
-  def savestatus(self):
-    path='Data/status.json'
-    with open(status_file,'w') as f:
-	json.dump(self.status, f)
+  def Start(self):
+    self.atscene("Start")
+
+Lifeline=Tales()
+Lifeline.Start()
