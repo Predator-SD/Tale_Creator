@@ -1,3 +1,14 @@
 {
-  "Start":["<<Boardcast:[Connecting...]>>","<<Speak:Hello?>>","<<Choose:Hello,Hi,End,Over>>"],"End":["<<Speak:You win!>>","[End]"],"Over":["[Over]"]
+    "Start": [
+        "<<Boardcast:[Connecting...]>>",
+        "<<Speak:Hello?>>",
+        "<<Choose:Hello,Hi,End,Over>>"
+    ],
+    "End": [
+        "<<Speak:You win!>>",
+        "[End]"
+    ],
+    "Over": [
+        "[Over]"
+    ]
 }

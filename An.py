@@ -25,7 +25,7 @@ class Tales(object):
       self.status={'Properties':{'scene':'Start'}}
   def savestatus(self):
     path='Data/status.json'
-    with open(status_file,'w') as f:
+    with open('Data/status.js','w') as f:
       json.dump(self.status, f)
   def atscene(self,scene):
     self.status['Properties']['scene']=scene
