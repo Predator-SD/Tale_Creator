@@ -40,7 +40,7 @@ class Tales(object):
       if line[:6]=="[Jump:":
         nextscene=line[6:(len(line)-1)]
         self.status['Properties']['scene']=next
-        atscene(nextscene)
+        self.atscene(nextscene)
       if line=="[End]":
         print("[Connection Exiting...]\n")
         print("Thee End~Thanks for playing!!!")
@@ -51,16 +51,16 @@ class Tales(object):
       	sleep(2)
       	print("You Failed...")
       	sleep(3)
-      	atscene("Start")
+      	self.atscene("Start")
       if line[:8]=="<<Sleep:":
         unit=line[-3]
         raw=line[8:(len(line)-3)]
         if unit=='s':
-          sleep(raw)
+          sleep(float(raw))
         elif unit=='m':
-          sleep(raw*60)
+          sleep(float(raw)*60)
         elif unit=='h':
-          sleep(raw*3600)
+          sleep(float(raw)*3600)
         else:
           sleep(raw)
       if line[:9]=="<<Choice:":
@@ -71,11 +71,11 @@ class Tales(object):
         for i in range(0,l):
           tp=str(i+1)+"-->"+a[i]+'\n'
           text+=tp
-        inword=input(text)
-        if int(inwords)>0 and int(inword)<=l:
-          choice=l+lint(inwords)-1
+        inwords=input(text)
+        if int(inwords)>0 and int(inwords)<=l:
+          choice=l+int(inwords)-1
           sleep(1)
-          atscene(choice)
+          self.atscene(a[choice])
         else:
           print("233,error accrued!!!")
           sleep(3)

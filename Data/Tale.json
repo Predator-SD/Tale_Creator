@@ -2,7 +2,8 @@
     "Start": [
         "<<Boardcast:[Connecting...]>>",
         "<<Speak:Hello?>>",
-        "<<Choose:Hello,Hi,End,Over>>"
+        "<<Sleep:5s>>",
+        "<<Choice:Hello,Hi,End,Over>>"
     ],
     "End": [
         "<<Speak:You win!>>",
