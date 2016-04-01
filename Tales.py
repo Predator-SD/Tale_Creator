@@ -40,7 +40,7 @@ class Tales(object):
       if line[:6]=="[Jump:":
         nextscene=line[6:(len(line)-1)]
         self.status['Properties']['scene']=next
-        atscene(next)
+        atscene(nextscene)
       if line=="[End]":
         print("[Connection Exiting...]\n")
         print("Thee End~Thanks for playing!!!")
