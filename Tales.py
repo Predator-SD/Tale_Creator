@@ -68,7 +68,7 @@ class Tales(object):
         a=rc.split(',')
         l=len(a)/2
         text="To choose:\n"
-        for i in range(0,l):
+        for i in range(0,int(l)):
           tp=str(i+1)+"-->"+a[i]+'\n'
           text+=tp
         text+='>'
@@ -76,7 +76,7 @@ class Tales(object):
         if int(inwords)>0 and int(inwords)<=l:
           choice=l+int(inwords)-1
           sleep(1)
-          self.atscene(a[choice])
+          self.atscene(a[int(choice)])
         else:
           print("233,error accrued!!!")
           sleep(3)
