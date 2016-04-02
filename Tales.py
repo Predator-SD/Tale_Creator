@@ -32,10 +32,10 @@ class Tales(object):
     self.savestatus()
     for line in self.script[scene]:
       if line[:12]=="<<Boardcast:":
-        print("[",line[12:(len(line)-2)],"]")
+        print("["+line[12:(len(line)-2)]+"]")
         sleep(2)
       if line[:8]=="<<Speak:":
-        print(self.name,">",line[8:(len(line)-2)])
+        print(line[8:(len(line)-2)])
         sleep(1)
       if line[:6]=="[Jump:":
         nextscene=line[6:(len(line)-1)]
@@ -71,6 +71,7 @@ class Tales(object):
         for i in range(0,l):
           tp=str(i+1)+"-->"+a[i]+'\n'
           text+=tp
+        text+='>'
         inwords=input(text)
         if int(inwords)>0 and int(inwords)<=l:
           choice=l+int(inwords)-1

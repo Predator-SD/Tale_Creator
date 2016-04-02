@@ -1,9 +1,9 @@
 {
     "Start": [
-        "<<Boardcast:[Connecting...]>>",
+        "<<Boardcast:Connecting...>>",
         "<<Speak:Hello?>>",
         "<<Sleep:5s>>",
-        "<<Choice:Hello,Hi,End,Over>>"
+        "<<Choice:Hello,I'm busy!Do not interrupt me!,End,Over>>"
     ],
     "End": [
         "<<Speak:You win!>>",
